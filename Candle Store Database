@@ -1,0 +1,26 @@
+- created fictional store database for magical candles
+
+CREATE TABLE enchanted_candles (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, magical_effect TEXT);
+INSERT INTO enchanted_candles VALUES (1,"LOVE", 6,"ROMANCE");
+INSERT INTO enchanted_candles VALUES (2,"COOLING WATERS", 6,"PEACE");
+INSERT INTO enchanted_candles VALUES (3,"ARIES", 6,"FIRE");
+INSERT INTO enchanted_candles VALUES (4,"TAURUS", 7,"EARTH");
+INSERT INTO enchanted_candles VALUES (5, "GEMINI", 8, "AIR");
+INSERT INTO enchanted_candles VALUES (6, "CANCER", 9, "WATER");
+INSERT INTO enchanted_candles VALUES (7, "LEO", 10, "FIRE");
+INSERT INTO enchanted_candles VALUES (8, "VIRGO", 8, "EARTH");
+INSERT INTO enchanted_candles VALUES (9, "LIBRA", 11, "AIR");
+INSERT INTO enchanted_candles VALUES (10, "SCORPIO", 12, "WATER");
+INSERT INTO enchanted_candles VALUES (11, "SAGITTARIUS", 13, "FIRE");
+INSERT INTO enchanted_candles VALUES (12, "CAPRICORN", 14, "EARTH");
+INSERT INTO enchanted_candles VALUES (13, "AQUARIUS", 15, "AIR");
+INSERT INTO enchanted_candles VALUES (14, "PISCES", 16, "WATER");
+INSERT INTO enchanted_candles VALUES (15, "Fire_And_Brimstone", 8, "Vengeance");
+
+- displayed the database ordered by price
+
+SELECT NAME FROM enchanted_candles ORDER BY PRICE desc;
+
+- what is the total sum of all items in the candle store?
+
+SELECT sum(price) FROM enchanted_candles;
