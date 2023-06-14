@@ -1,0 +1,52 @@
+I created two tables - one labeled "artists" and one labeled "songs". "Artists" contains info on stage name and the artists' real name, along with the corresponding ID. 
+"Songs" contains the info of song titles, the year they were released, and has an artist ID that matches the one from the "Artists" table. 
+
+I used the JOIN command to join the tables together to display the stage name of the artist, next to their songs. 
+
+CREATE TABLE artists (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    stage_name TEXT,
+    real_name TEXT
+); 
+
+INSERT INTO artists (stage_name, real_name) VALUES ("Lady Gaga", "Stefani Joanne Angelina Germanotta");
+INSERT INTO artists (stage_name, real_name) VALUES ("Britney Spears", "Britney Jean Spears");
+INSERT INTO artists (stage_name, real_name) VALUES ("George Michael", "Georgios Kyriacos Panayiotou");
+
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    artist_id INTEGER,
+    title TEXT,
+    release_year INTEGER); 
+    
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (1, "Free Woman", 2020);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (1, "Just Dance", 2009);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (1, "Heavy Metal Lover", 2011);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (1, "Bad Kids", 2011);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (2, "Breathe On Me", 2004);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (2, "Everytime", 2004);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (2, "Gimme More", 2007);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (2, "Hot As Ice", 2007);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (3, "Fastlove", 1996);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (3, "Father Figure", 1987);  
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (3, "Careless Whisper", 1984);
+INSERT INTO songs (artist_id, title, release_year) 
+   VALUES (3, "Faith", 1987);
+
+Select * FROM artists;
+
+Select stage_name, title
+FROM artists
+JOIN Songs
+on songs.artist_id = artists.id;
