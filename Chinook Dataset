@@ -1,0 +1,43 @@
+In this project in my Data Analytics course, we were tasked with working with a dataset called chinook, which represents a digital media store and includes tables for artists, albums, media tracks, invoices, and customers.
+The following are queries associated with this dataset.
+
+1) --Show Customers (their full names, customer ID, and country) who are not in the US.
+--Select CustomerID, FirstName, LastName, Country
+--FROM chinook.customers
+--WHERE Country <> 'USA';
+
+2)--Show only the Customers from Brazil.
+--Select CustomerID, FirstName, LastName, Country
+--FROM chinook.customers
+--WHERE Country = 'Brazil';
+
+3) --Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+--Select customers.FirstName, customers.LastName, invoices.invoiceid, invoices.InvoiceDate, invoices.BillingCountry
+--FROM chinook.customers customers
+--LEFT JOIN chinook.invoices invoices ON customers.CustomerId=invoices.Invoiceid
+--WHERE BillingCountry = 'Brazil';
+
+4) --Show the Employees who are Sales Agents.
+--Select * FROM employees
+--WHERE title = 'Sales Support Agent';
+
+5)--Find a unique/distinct list of billing countries from the Invoice table.
+--Select DISTINCT(BillingCountry) 
+--FROM invoices
+--ORDER BY BillingCountry DESC;
+
+6)--How many Invoices were there in 2009?
+--Select COUNT(*) 
+--FROM chinook.Invoices
+--WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
+
+7)--What are the total sales for 2009?
+--SELECT Sum(Total) 
+--FROM invoices 
+--WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
+
+8)--Write a query that includes the purchased track name with each invoice line ID
+--select invoice_items.InvoiceLineId, tracks.Name
+--FROM tracks
+--JOIN invoice_items
+--ON tracks.Trackid = invoice_items.Trackid;
